@@ -15,10 +15,24 @@ namespace CookBook
     
     public partial class frmCookbook : Form
     {
-        public Cookbook _cookbook = JsonConvert.DeserializeObject<Cookbook>(File.ReadAllText("cookbook.json"));
+        public Cookbook _cookbook;
+       
         
         public frmCookbook()
         {
+            //zastanowic sie czy to musi byc w konstruktorze bo w load tez dziala
+            if (!File.Exists("cookbook.json"))
+            {
+
+            }
+            else
+            {
+                _cookbook = JsonConvert.DeserializeObject<Cookbook>(File.ReadAllText("cookbook.json"));
+            }
+
+
+
+
 
             InitializeComponent();
             
@@ -28,6 +42,16 @@ namespace CookBook
         {
             frmAddRecipe frmAddRecipe = new frmAddRecipe();
             frmAddRecipe.Show();
+            
+        }
+
+        private void frmCookbook_Load(object sender, EventArgs e)
+        {
+      
+            foreach (var recipe in _cookbook.RecipeList)
+            {
+                lstRecipes.Items.Add(recipe.Name.ToString());
+            }
         }
     }
 }

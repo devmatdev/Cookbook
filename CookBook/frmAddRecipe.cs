@@ -15,7 +15,7 @@ namespace CookBook
 {
     public partial class frmAddRecipe : Form
     {
-        public static Cookbook _cookbook;
+        public Cookbook _cookbook;
         public frmAddRecipe()
         {
             InitializeComponent();
@@ -43,6 +43,8 @@ namespace CookBook
                 _cookbook.AddRecipe(recipe);
                 var cookbookSerialized = JsonConvert.SerializeObject(_cookbook);
                 File.WriteAllText("cookbook.json", cookbookSerialized);
+                
+                this.Close();
             }
            
             
