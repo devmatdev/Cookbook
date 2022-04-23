@@ -12,10 +12,6 @@ namespace CookBook
 
         public void AddRecipe(Recipe recipe) => RecipeList.Add(recipe);
 
-        public void Example()
-        {
-            
-        }
-        
+        public void RemoveRecipe(string name) => RecipeList.Remove(RecipeList.FirstOrDefault(x => x.Name == name));
     }
 }

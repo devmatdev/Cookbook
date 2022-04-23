@@ -42,9 +42,9 @@ namespace CookBook
                 Recipe recipe = new Recipe(txtName.Text, txtIngredients.Text, txtRecipeContent.Text, txtComments.Text);
                 _cookbook.AddRecipe(recipe);
                 var cookbookSerialized = JsonConvert.SerializeObject(_cookbook);
-                File.WriteAllText("cookbook.json", cookbookSerialized);
-                
+                File.WriteAllText("cookbook.json", cookbookSerialized);                
                 this.Close();
+
             }
            
             

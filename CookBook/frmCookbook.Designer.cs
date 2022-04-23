@@ -29,13 +29,11 @@ namespace CookBook
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnShowRecipe = new System.Windows.Forms.Button();
             this.btnAddRecipe = new System.Windows.Forms.Button();
             this.btnRemoveRecipe = new System.Windows.Forms.Button();
             this.btnEditRecipe = new System.Windows.Forms.Button();
             this.lstRecipes = new System.Windows.Forms.ListBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnShowRecipe
@@ -65,6 +63,7 @@ namespace CookBook
             this.btnRemoveRecipe.TabIndex = 1;
             this.btnRemoveRecipe.Text = "Usuń przepis";
             this.btnRemoveRecipe.UseVisualStyleBackColor = true;
+            this.btnRemoveRecipe.Click += new System.EventHandler(this.btnRemoveRecipe_Click);
             // 
             // btnEditRecipe
             // 
@@ -82,7 +81,7 @@ namespace CookBook
             this.lstRecipes.ItemHeight = 15;
             this.lstRecipes.Location = new System.Drawing.Point(12, 12);
             this.lstRecipes.Name = "lstRecipes";
-            this.lstRecipes.Size = new System.Drawing.Size(120, 424);
+            this.lstRecipes.Size = new System.Drawing.Size(183, 424);
             this.lstRecipes.TabIndex = 2;
             // 
             // frmCookbook
@@ -108,6 +107,5 @@ namespace CookBook
         private System.Windows.Forms.Button btnRemoveRecipe;
         private System.Windows.Forms.Button btnEditRecipe;
         private System.Windows.Forms.ListBox lstRecipes;
-        private System.Windows.Forms.Timer timer1;
     }
 }

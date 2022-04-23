@@ -30,10 +30,6 @@ namespace CookBook
                 _cookbook = JsonConvert.DeserializeObject<Cookbook>(File.ReadAllText("cookbook.json"));
             }
 
-
-
-
-
             InitializeComponent();
             
         }
@@ -42,7 +38,7 @@ namespace CookBook
         {
             frmAddRecipe frmAddRecipe = new frmAddRecipe();
             frmAddRecipe.Show();
-            
+           
         }
 
         private void frmCookbook_Load(object sender, EventArgs e)
@@ -52,6 +48,14 @@ namespace CookBook
             {
                 lstRecipes.Items.Add(recipe.Name.ToString());
             }
+        }
+       
+        private void btnRemoveRecipe_Click(object sender, EventArgs e)
+        {
+            _cookbook.RemoveRecipe(lstRecipes.SelectedItem.ToString());
+            var cookbookSerialized = JsonConvert.SerializeObject(_cookbook);
+            File.WriteAllText("cookbook.json", cookbookSerialized);
+            lstRecipes.Items.Remove(lstRecipes.SelectedItem);
         }
     }
 }
